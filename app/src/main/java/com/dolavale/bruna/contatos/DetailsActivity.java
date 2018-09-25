@@ -5,12 +5,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-public class DetailsContactActivity extends AppCompatActivity {
+public class DetailsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_details_contact);
+        setContentView(R.layout.activity_details);
 
         Bundle extras = getIntent().getExtras();
 

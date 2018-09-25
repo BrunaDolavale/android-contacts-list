@@ -1,13 +1,13 @@
 package com.dolavale.bruna.contatos;
 
-public class ContactModel {
+public class Model {
 
     private String phoneNumber;
     private String name;
     private String email;
     private String city;
 
-    public ContactModel(String phoneNumber, String name, String email, String city) {
+    public Model(String phoneNumber, String name, String email, String city) {
         this.phoneNumber = phoneNumber;
         this.name = name;
         this.email = email;

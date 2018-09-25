@@ -10,31 +10,31 @@ import android.widget.TextView;
 
 import java.util.List;
 
-public class ContactCardsAdapter extends RecyclerView.Adapter {
+public class CardsAdapter extends RecyclerView.Adapter {
 
-    List<ContactModel> contactCards;
+    List<Model> contactCards;
 
-    public ContactCardsAdapter(List<ContactModel> contactCards) {
+    public CardsAdapter(List<Model> contactCards) {
         this.contactCards = contactCards;
     }
 
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View card = LayoutInflater.from(parent.getContext()).inflate(R.layout.contact_card, parent, false);
+        View card = LayoutInflater.from(parent.getContext()).inflate(R.layout.card, parent, false);
 
         return new ContactViewHolder(card);
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        ContactModel contactModel = contactCards.get(position);
+        Model model = contactCards.get(position);
 
         ContactViewHolder viewHolder = (ContactViewHolder) holder;
-        viewHolder.name.setText(contactModel.getName());
-        viewHolder.city.setText(contactModel.getCity());
-        viewHolder.email.setText(contactModel.getEmail());
-        viewHolder.phoneNumber.setText(contactModel.getPhoneNumber());
+        viewHolder.name.setText(model.getName());
+        viewHolder.city.setText(model.getCity());
+        viewHolder.email.setText(model.getEmail());
+        viewHolder.phoneNumber.setText(model.getPhoneNumber());
 
     }
 
@@ -63,7 +63,7 @@ public class ContactCardsAdapter extends RecyclerView.Adapter {
             showDetails.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(itemView.getContext(), DetailsContactActivity.class);
+                    Intent intent = new Intent(itemView.getContext(), DetailsActivity.class);
                     intent.putExtra("name", name.getText().toString());
                     intent.putExtra("email", email.getText().toString());
                     intent.putExtra("city", city.getText().toString());

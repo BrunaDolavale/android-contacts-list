@@ -13,12 +13,12 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 
-public class CreateContactActivity extends AppCompatActivity {
+public class CreateActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_contact);
+        setContentView(R.layout.activity_create);
     }
 
     public void onCancel(View view) {
@@ -38,7 +38,7 @@ public class CreateContactActivity extends AppCompatActivity {
 
         if(!name.equals("") && !email.equals("") && !phoneNumber.equals("") && !city.equals("")){
 
-            ContactModel contact = new ContactModel(phoneNumber, name,email, city);
+            Model contact = new Model(phoneNumber, name,email, city);
 
             try{
                 File outFile = new File(getFilesDir(), MainActivity.CONTACT_FILENAME);

@@ -7,7 +7,6 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
@@ -17,14 +16,13 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     public static final String CONTACT_FILENAME = "contacts.txt";
-    List<ContactModel> contactList;
+    List<Model> contactList;
     RecyclerView recyclerViewContacts;
 
     @Override
@@ -34,11 +32,11 @@ public class MainActivity extends AppCompatActivity {
 
         contactList = new ArrayList<>();
         //for(int i = 1; i<5; i++){
-         //   contactList.add(new ContactModel("9971"+i, "bruna Júnior " + i,
+         //   contactList.add(new Model("9971"+i, "bruna Júnior " + i,
         //            "brunadolavalec@outlook.com "+i,"Rio de Janeiro"));
         //}
 
-        ContactCardsAdapter adapter = new ContactCardsAdapter(contactList);
+        CardsAdapter adapter = new CardsAdapter(contactList);
         recyclerViewContacts = findViewById(R.id.recyclerView_contact_list);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
@@ -69,12 +67,12 @@ public class MainActivity extends AppCompatActivity {
                     String email = bufferedReader.readLine();
                     String phoneNumber = bufferedReader.readLine();
                     String city = bufferedReader.readLine();
-                    contactList.add(new ContactModel(phoneNumber,name,email,city));
+                    contactList.add(new Model(phoneNumber,name,email,city));
                 }
                 line = bufferedReader.readLine();
             }
 
-            ContactCardsAdapter adapter = new ContactCardsAdapter(contactList);
+            CardsAdapter adapter = new CardsAdapter(contactList);
             recyclerViewContacts.setAdapter(adapter);
             adapter.notifyDataSetChanged();
 
@@ -90,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void goCreateContact(View view) {
-        startActivity(new Intent(this, CreateContactActivity.class));
+        startActivity(new Intent(this, CreateActivity.class));
     }
 
     public void clearContactList(View view) {

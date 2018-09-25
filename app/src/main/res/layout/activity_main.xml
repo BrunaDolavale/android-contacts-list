@@ -10,23 +10,25 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:gravity="center">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:src="@drawable/agenda"
+            android:layout_height="wrap_content" />
+
 
         <Button
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Novo contato"
-            android:backgroundTint="#39ac39"
-            android:textColor="#fff"
+            android:layout_height="match_parent"
+            android:text="Adicionar novo contato"
             android:onClick="goCreateContact"
             />
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Limpar lista"
-            android:backgroundTint="#ff4d4d"
-            android:textColor="#fff"
             android:onClick="clearContactList"
             />
     </LinearLayout>
